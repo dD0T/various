@@ -150,6 +150,9 @@ class TextElement(object):
         """
         # get a memory dc
         dc = wx.MemoryDC()
+
+        # Need to have a bitmap set for font extent calculation to work on all platforms
+        dc.SelectObject(wx.EmptyBitmap(100, 100))
         
         # set our font
         dc.SetFont(self._font)
